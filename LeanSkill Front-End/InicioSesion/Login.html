@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LeanSkill - Inicio de Sesión</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <!-- Paleta de colores personalizada -->
+  <style>
+    :root {
+      --Verde-claro: #03624C;
+      --Verde-oscuro: #032221;
+      --gris-claro: #868589;
+      --azul-grisaceo: #87868A;
+      --anti-flash-white: #F1F7F7;
+      --rich-black: #0D0F18;
+      --dark-green: #032231;
+      --stone: #707070;
+    }
+    /* Fondo degradado */
+    body {
+      background: linear-gradient(135deg, var(--Verde-oscuro), var(--Verde-claro));
+      min-height: 100vh;
+    }
+    /* Contenedor de la tarjeta */
+    .card-login {
+      max-width: 400px;
+      margin: auto;
+      background-color: var(--anti-flash-white);
+      border: 1px solid var(--Verde-oscuro);
+      border-radius: .5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    /* Cabecera de la tarjeta */
+    .card-login .card-header {
+      background-color: var(--Verde-oscuro);
+      color: var(--anti-flash-white);
+      border-bottom: none;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    /* Etiquetas */
+    .form-label,
+    .form-check-label {
+      color: var(--dark-green);
+      font-weight: 500;
+    }
+    /* Inputs */
+    .form-control {
+      border: 1px solid var(--gris-claro);
+      border-radius: .375rem;
+      background-color: #fff;
+      color: var(--rich-black);
+    }
+    .form-control:focus {
+      border-color: var(--Verde-oscuro);
+      box-shadow: 0 0 0 0.2rem rgba(0, 150, 167, 0.25);
+    }
+    /* Botón principal */
+    .btn-primary {
+      background-color: var(--Verde-oscuro);
+      border-color: var(--Verde-oscuro);
+    }
+    .btn-primary:hover {
+      background-color: var(--azul-grisaceo);
+      border-color: var(--azul-grisaceo);
+    }
+    /* Textos secundarios */
+    .text-secondary,
+    .text-muted {
+      color: var(--gris-claro) !important;
+    }
+      #navbarIndex {
+    background-color: var(--Verde-oscuro) !important;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Menu -->
+
+  <nav class="navbar" id="navbarIndex">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">
+      <img src="img/LogoLeanSkill.jpeg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+      LeanSkill
+    </a>
+  </div>
+</nav>
+
+  <!-- Contenedor principal -->
+  
+  <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="text-white">Bienvenido a LeanSkill</h1>
+        <p class="text-white">Inicia sesión para continuar</p>
+  
+  <!-- Contenedor de la tarjeta de inicio de sesión -->
+  <div class="card card-login">
+    <div class="card-header">Inicio de Sesión</div>
+    <div class="card-body p-4">
+      <form id="login-form">
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-2">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <!--Olvido de contraseña-->
+        <div class="mb-3">
+          <a href="#" class="text-muted">¿Olvidaste tu contraseña?</a>
+        </div>
+        <button type="submit" id="login-button" class="btn btn-primary w-100 mb-3">Iniciar Sesión</button>
+      </form>
+         </div>
+       </div>
+     </div>
+   </div>
+</div>
+
+  <!--Footer-->
+
+  <footer class="bg-body-tertiary text-center text-lg-start mt-5">
+    <div class="text-center p-3" style="background-color: var(--Verde-oscuro); color: var(--anti-flash-white);">
+      <small>© 2023 LeanSkill. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <!-- Custom JS -->
+  <script src="LoginJs.js"></script>
+</body>
+</html>

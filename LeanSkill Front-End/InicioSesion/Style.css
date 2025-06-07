@@ -1,0 +1,130 @@
+/* Paleta de colores */
+:root {
+  --rich-black: #0D0F18;
+  --dark-green: #032231;
+  --bangladesh-green: #03624C;
+  --mountain-meadow: #2CC295;
+  --caribbean-green: #00DB8B;
+  --anti-flash-white: #F1F7F7;
+
+  /* Secundarios (opcionales) */
+  --pine: #003028;
+  --basil: #0B453A;
+  --forest: #095544;
+  --frog: #278D6D;
+  --mint: #2FA98C;
+  --stone: #707070;
+  --pistachio: #AACCC4;
+}
+
+/* Estilos globales */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--rich-black);
+  font-family: 'Axiforma', sans-serif;
+  color: var(--dark-green);
+}
+
+/* Encabezado */
+h1 {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 2.5rem;
+  color: var(--mountain-meadow);
+}
+
+/* Contenedor del formulario */
+#login-form {
+  background-color: var(--anti-flash-white);
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  border: 2px solid var(--bangladesh-green);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(3, 34, 33, 0.4);
+}
+
+/* Título del formulario */
+#title-login {
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+/* Labels sin subrayado y en negro */
+#login-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  background: transparent;
+  color: #000;
+  padding: 0;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+/* Inputs */
+#login-form input[type="email"],
+#login-form input[type="password"] {
+  width: 93%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--stone);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--rich-black);
+  background-color: var(--pistachio);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#login-form input[type="email"]:focus,
+#login-form input[type="password"]:focus {
+  outline: none;
+  border-color: var(--caribbean-green);
+  box-shadow: 0 0 4px var(--caribbean-green);
+}
+
+/* Botón de envío */
+#login-button {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--caribbean-green);
+  color: var(--anti-flash-white);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#login-button:hover {
+  background-color: var(--mountain-meadow);
+}
+
+#login-button:active {
+  transform: scale(0.98);
+}
+
+/* Recordar contraseña */
+#remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: var(--dark-green);
+}
+
+#remember-me input[type="checkbox"] {
+  margin-left: 8px;
+  accent-color: var(--caribbean-green);
+}
+
+/* Mensajes de estado */
+#token,
+#cm {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--basil);
+  margin-top: 12px;
+}

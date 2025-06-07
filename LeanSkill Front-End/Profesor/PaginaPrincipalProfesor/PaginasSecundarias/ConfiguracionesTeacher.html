@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>LeanSkill – Configuraciones</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      :root {
+        --Verde-claro: #03624c;
+        --Verde-oscuro: #032221;
+        --anti-flash-white: #fff6d6;
+        --shadow-color: rgba(0, 0, 0, 0.25);
+        --Verde-azulado: #062e2d;
+      }
+
+      body {
+        background: linear-gradient(
+          135deg,
+          var(--Verde-oscuro),
+          var(--Verde-claro)
+        );
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ==========================
+         Sidebar (Menú lateral principal)
+         ========================== */
+      #navbarLateral {
+        background-color: var(--Verde-azulado) !important;
+        width: 198px;
+      }
+
+      #navbarLateral .navbar-brand {
+        color: white;
+        font-weight: 500;
+      }
+
+      #navbarLateral .nav-link {
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.75rem;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      #navbarLateral .nav-link:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      #navbarLateral .nav-link.active {
+        background-color: var(--Verde-oscuro);
+        color: white;
+      }
+
+      #navbarLateral .dropdown-menu {
+        background-color: var(--Verde-azulado);
+      }
+
+      #navbarLateral .dropdown-item {
+        color: white;
+      }
+
+      #navbarLateral .dropdown-item:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      /* Footer dentro del sidebar, pegado al fondo */
+      #navbarLateral .navbar-footer {
+        margin-top: auto;
+        padding: 1rem 0;
+      }
+
+      /* ==========================
+         Navbar secundaria (Configuraciones)
+         ========================== */
+      #navbarSecundario {
+        background-color: var(--Verde-azulado);
+        height: 70px;
+      }
+
+      #navbarSecundario .navbar-brand {
+        color: white;
+        font-weight: 500;
+      }
+
+      #navbarSecundario .nav-link {
+        color: white;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      #navbarSecundario .nav-link:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      #navbarSecundario .nav-link.active {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      /* ==========================
+         Estilos adicionales para el main
+         ========================== */
+      main {
+        padding: 1rem 2rem;
+      }
+
+      /* Aseguramos que el contenido principal use todo el espacio restante */
+      .d-flex > main {
+        flex-grow: 1;
+      }
+
+      /* Etiquetas (labels) en negro */
+      .form-label {
+        color: black !important;
+      }
+
+      /* Tarjeta con bordes redondeados y sombra */
+      .config-card {
+        background-color: var(--anti-flash-white);
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        padding: 1.5rem;
+      }
+
+      /* Centrar contenido */
+      .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+      }
+
+      /* Ajustar ancho máximo para tarjetas */
+      .card-wrapper {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      /* Título principal dentro de la tarjeta */
+      .card-wrapper .seccion-title {
+        margin-bottom: 1rem;
+        color: #032221;
+      }
+
+      /* Subtítulos de secciones */
+      .sub-seccion {
+        margin-bottom: 2rem;
+      }
+
+      .sub-seccion h4 {
+        color: #032221;
+        margin-bottom: 1rem;
+      }
+
+      /* Botón de “Guardar” personalizado */
+      .btn-guardar {
+        background-color: #004d40;
+        color: white;
+        border: none;
+      }
+
+      .btn-guardar:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      /* Botones de acción de seguridad */
+      .btn-outline-danger {
+        border-color: #dc3545;
+        color: #dc3545;
+      }
+
+      .btn-outline-danger:hover {
+        background-color: #dc3545;
+        color: white;
+      }
+
+      .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+      }
+
+      .btn-danger:hover {
+        background-color: #b02a37;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="d-flex">
+      <!-- ==========================
+         Menú lateral principal (Sidebar)
+         ========================== -->
+      <nav id="navbarLateral" class="navbar d-flex flex-column min-vh-100">
+        <div class="container-fluid d-flex flex-column h-100 p-0">
+          <!-- Logo y título del sidebar -->
+          <a class="navbar-brand d-flex align-items-center px-3 py-2" href="#">
+            <img
+              src="../img/LogoLeanSkill.jpeg"
+              width="50"
+              height="50"
+              class="me-2"
+              alt="Logo LeanSkill"
+            />
+            Profesor
+          </a>
+
+          <!-- Ítems de navegación -->
+          <ul class="navbar-nav flex-column px-3 flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link" href="../InicioTeacher.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="PerfilTeacher.html">Perfil</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="cursosDropdown"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Cursos
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="cursosDropdown">
+                <li>
+                  <a class="dropdown-item" href="CursoInglesTeacher.html"
+                    >Inglés</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="CursoEspanolTeacher.html"
+                    >Español</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="NotasTeacher.html">Notas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Estudiantes.html">Estudiantes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AyudaTeacher.html">Ayuda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Configuraciones.html"
+                >Configuraciones</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../../InicioSesion/Login.html"
+                >Cerrar sesión</a
+              >
+            </li>
+          </ul>
+
+          <!-- Footer del sidebar (pegado al fondo) -->
+          <div class="navbar-footer text-center text-white">
+            <small>© 2023 LeanSkill. Todos los derechos reservados.</small>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ==========================
+         Contenido principal
+         ========================== -->
+      <main class="flex-fill">
+        <!-- Barra secundaria de Configuraciones -->
+        <nav id="navbarSecundario" class="navbar d-flex align-items-center px-3">
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="../img/LogoSettings.png"
+              width="40"
+              height="40"
+              class="me-2"
+              alt="Logo Configuraciones"
+            />
+            Configuraciones
+          </a>
+
+          <!-- Botón “Atrás” -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../InicioTeacher.html">Atrás</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Contenido de la sección Configuraciones -->
+        <section class="mt-4">
+          <div class="center-container">
+            <div class="card-wrapper config-card">
+              <h2 class="seccion-title">Ajustes de mi cuenta</h2>
+
+              <!-- ================================
+                   1. Cambio de contraseña
+                   ================================= -->
+              <div class="sub-seccion">
+                <h4>Cambiar contraseña</h4>
+                <form id="formCambioContrasena">
+                  <div class="mb-3">
+                    <label for="inputContrasenaActual" class="form-label"
+                      >Contraseña actual</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="inputContrasenaActual"
+                      placeholder="Ingrese su contraseña actual"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputContrasenaNueva" class="form-label"
+                      >Nueva contraseña</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="inputContrasenaNueva"
+                      placeholder="Ingrese la nueva contraseña"
+                      minlength="8"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputConfirmarContrasena" class="form-label"
+                      >Confirmar nueva contraseña</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="inputConfirmarContrasena"
+                      placeholder="Repita la nueva contraseña"
+                      minlength="8"
+                      required
+                    />
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <button
+                      type="submit"
+                      class="btn btn-guardar"
+                      id="btnGuardarContrasena"
+                    >
+                      Guardar cambios
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- ================================
+                   2. Preferencias de notificaciones
+                   ================================= -->
+              <div class="sub-seccion">
+                <h4>Preferencias de notificaciones</h4>
+                <form id="formNotificaciones">
+                  <div class="form-check form-switch mb-2">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="toggleCorreoActividad"
+                      checked
+                    />
+                    <label
+                      class="form-check-label"
+                      for="toggleCorreoActividad"
+                    >
+                      Recibir correo al publicar nueva actividad
+                    </label>
+                  </div>
+                  <div class="form-check form-switch mb-2">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="toggleCorreoCalificacion"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="toggleCorreoCalificacion"
+                    >
+                      Recibir correo al calificar actividades
+                    </label>
+                  </div>
+                  <div class="form-check form-switch mb-2">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="togglePushMobile"
+                    />
+                    <label class="form-check-label" for="togglePushMobile">
+                      Recibir notificaciones push (app móvil)
+                    </label>
+                  </div>
+                  <div class="d-flex justify-content-end mt-3">
+                    <button
+                      type="submit"
+                      class="btn btn-guardar"
+                      id="btnGuardarNotificaciones"
+                    >
+                      Guardar preferencias
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- ================================
+                   3. Tema de la interfaz
+                   ================================= -->
+              <div class="sub-seccion">
+                <h4>Tema de la interfaz</h4>
+                <form id="formTema">
+                  <div class="mb-3">
+                    <label class="form-label me-3">Seleccionar tema:</label>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radioTema"
+                        id="temaClaro"
+                        value="claro"
+                        checked
+                      />
+                      <label class="form-check-label" for="temaClaro"
+                        >Claro</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radioTema"
+                        id="temaOscuro"
+                        value="oscuro"
+                      />
+                      <label class="form-check-label" for="temaOscuro"
+                        >Oscuro</label
+                      >
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <button
+                      type="submit"
+                      class="btn btn-guardar"
+                      id="btnGuardarTema"
+                    >
+                      Aplicar tema
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- ================================
+                   4. Idioma de la plataforma
+                   ================================= -->
+              <div class="sub-seccion">
+                <h4>Idioma de la plataforma</h4>
+                <form id="formIdioma">
+                  <div class="mb-3">
+                    <label for="selectIdioma" class="form-label"
+                      >Seleccionar idioma:</label
+                    >
+                    <select id="selectIdioma" class="form-select" required>
+                      <option value="es" selected>Español</option>
+                      <option value="en">Inglés</option>
+                      <!-- Se pueden agregar más idiomas -->
+                    </select>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <button
+                      type="submit"
+                      class="btn btn-guardar"
+                      id="btnGuardarIdioma"
+                    >
+                      Guardar idioma
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- ================================
+                   5. Eliminar cuenta / Cerrar todas las sesiones
+                   ================================= -->
+              <div class="sub-seccion">
+                <h4>Seguridad de la cuenta</h4>
+                <div class="d-flex flex-column gap-2">
+                  <button
+                    class="btn btn-outline-danger"
+                    id="btnCerrarSesiones"
+                  >
+                    Cerrar todas mis sesiones
+                  </button>
+                  <button
+                    class="btn btn-danger"
+                    id="btnEliminarCuenta"
+                  >
+                    Eliminar mi cuenta
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ==========================
+       JavaScript: Bootstrap + Script propio
+       ========================== -->
+    <!-- 1) Bootstrap Bundle JS (Popper incluido) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 2) Manejo de formularios y confirmaciones -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 2.1 Cambio de contraseña
+        document
+          .getElementById('formCambioContrasena')
+          .addEventListener('submit', (e) => {
+            e.preventDefault();
+            const actual = document
+              .getElementById('inputContrasenaActual')
+              .value.trim();
+            const nueva = document
+              .getElementById('inputContrasenaNueva')
+              .value.trim();
+            const confirmar = document
+              .getElementById('inputConfirmarContrasena')
+              .value.trim();
+            if (!actual || !nueva || !confirmar) {
+              alert('Por favor, complete todos los campos.');
+              return;
+            }
+            if (nueva !== confirmar) {
+              alert('La nueva contraseña y la confirmación no coinciden.');
+              return;
+            }
+            if (
+              !confirm(
+                '¿Estás seguro que deseas cambiar tu contraseña?'
+              )
+            )
+              return;
+            // Aquí iría la llamada al servidor para actualizar la contraseña
+            alert('Contraseña actualizada correctamente.');
+            e.target.reset();
+          });
+
+        // 2.2 Preferencias de notificaciones
+        document
+          .getElementById('formNotificaciones')
+          .addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (
+              !confirm(
+                '¿Deseas guardar los cambios en las notificaciones?'
+              )
+            )
+              return;
+            // Aquí iría la llamada al servidor para guardar preferencias
+            alert('Preferencias de notificaciones guardadas.');
+          });
+
+        // 2.3 Tema de la interfaz
+        document.getElementById('formTema').addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (
+            !confirm('¿Deseas aplicar el tema seleccionado?')
+          )
+            return;
+          const tema = document.querySelector(
+            'input[name="radioTema"]:checked'
+          ).value;
+          // Simular cambio de tema guardando en localStorage
+          localStorage.setItem('temaLeanSkill', tema);
+          alert(`Tema "${tema === 'claro' ? 'Claro' : 'Oscuro'}" aplicado.`);
+          // En producción, recargar o cambiar clases del body aquí
+        });
+
+        // 2.4 Idioma de la plataforma
+        document.getElementById('formIdioma').addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (!confirm('¿Deseas guardar el idioma seleccionado?')) return;
+          const idioma = document.getElementById('selectIdioma').value;
+          // Simular guardado de idioma
+          localStorage.setItem('idiomaLeanSkill', idioma);
+          alert(`Idioma "${idioma === 'en' ? 'Inglés' : 'Español'}" guardado.`);
+          // En producción, recargar contenidos en el nuevo idioma aquí
+        });
+
+        // 2.5 Cerrar todas las sesiones
+        document
+          .getElementById('btnCerrarSesiones')
+          .addEventListener('click', () => {
+            if (
+              !confirm('¿Estás seguro que quieres cerrar todas tus sesiones?')
+            )
+              return;
+            // Aquí se llamaría al servidor para invalidar todas las sesiones
+            alert('Todas tus sesiones han sido cerradas.');
+          });
+
+        // 2.6 Eliminar cuenta
+        document
+          .getElementById('btnEliminarCuenta')
+          .addEventListener('click', () => {
+            if (
+              !confirm(
+                '¿Estás seguro que deseas eliminar tu cuenta? Esta acción no se puede deshacer.'
+              )
+            )
+              return;
+            // Aquí se llamaría al servidor para eliminar la cuenta
+            alert('Tu cuenta ha sido eliminada. Esperamos verte pronto de regreso.');
+            // Redirigir, por ejemplo, a la página de inicio
+            window.location.href = '../InicioTeacher.html';
+          });
+      });
+    </script>
+  </body>
+</html>

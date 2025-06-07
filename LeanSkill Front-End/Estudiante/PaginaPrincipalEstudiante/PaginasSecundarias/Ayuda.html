@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>LeanSkill – Ayuda</title>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+    crossorigin="anonymous"
+  />
+
+  <style>
+    :root {
+      --Verde-claro: #03624C;
+      --Verde-oscuro: #032221;
+      --anti-flash-white: #fff6d6;
+      --shadow-color: rgba(0, 0, 0, 0.25);
+      --Verde-azulado: #062e2d;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--Verde-oscuro), var(--Verde-claro));
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ==========================
+       Sidebar (Menú lateral principal)
+       ========================== */
+    #navbarLateral {
+      background-color: var(--Verde-azulado) !important;
+      width: 198px;
+    }
+
+    #navbarLateral .navbar-brand {
+      color: white;
+      font-weight: 500;
+    }
+
+    #navbarLateral .nav-link {
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.75rem;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    #navbarLateral .nav-link:hover {
+      background-color: var(--Verde-claro);
+      color: white;
+    }
+
+    #navbarLateral .nav-link.active {
+      background-color: var(--Verde-oscuro);
+      color: white;
+    }
+
+    #navbarLateral .dropdown-menu {
+      background-color: var(--Verde-azulado);
+    }
+
+    #navbarLateral .dropdown-item {
+      color: white;
+    }
+
+    #navbarLateral .dropdown-item:hover {
+      background-color: var(--Verde-claro);
+      color: white;
+    }
+
+    /* Footer dentro del sidebar, pegado al fondo */
+    #navbarLateral .navbar-footer {
+      margin-top: auto;
+      padding: 1rem 0;
+    }
+
+    /* ==========================
+       Navbar secundaria (Ayuda)
+       ========================== */
+    #navbarSecundario {
+      background-color: var(--Verde-azulado);
+      height: 70px;
+    }
+
+    #navbarSecundario .navbar-brand {
+      color: white;
+      font-weight: 500;
+    }
+
+    #navbarSecundario .nav-link {
+      color: white;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    #navbarSecundario .nav-link:hover {
+      background-color: var(--Verde-claro);
+      color: white;
+    }
+
+    #navbarSecundario .nav-link.active {
+      background-color: var(--Verde-claro);
+      color: white;
+    }
+
+    /* ==========================
+       Estilos adicionales para el main
+       ========================== */
+    main {
+      padding: 1rem 2rem;
+    }
+
+    /* Aseguramos que el contenido principal use todo el espacio restante */
+    .d-flex > main {
+      flex-grow: 1;
+    }
+
+    /* Títulos de sección */
+    .seccion-title {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Acordeón FAQ */
+    .accordion-button {
+      background-color: var(--Verde-oscuro);
+      color: white;
+    }
+    .accordion-button:not(.collapsed) {
+      background-color: var(--Verde-claro);
+      color: white;
+    }
+    .accordion-body {
+      background-color: var(--anti-flash-white);
+      color: #032221;
+    }
+
+    /* Enlaces tutoriales */
+    .tutorial-link {
+      color: #004d40;
+      text-decoration: none;
+    }
+    .tutorial-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Formulario de contacto */
+    .form-label {
+      color: white;
+    }
+    .form-control,
+    .form-select {
+      border-radius: 0.375rem;
+    }
+    .btn-enviar {
+      background-color: #004d40;
+      color: white;
+      border: none;
+    }
+    .btn-enviar:hover {
+      background-color: var(--Verde-claro);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d-flex">
+    <!-- ==========================
+         Menú lateral principal (Sidebar)
+         ========================== -->
+    <nav id="navbarLateral" class="navbar d-flex flex-column min-vh-100">
+      <div class="container-fluid d-flex flex-column h-100 p-0">
+        <!-- Logo y título del sidebar -->
+        <a class="navbar-brand d-flex align-items-center px-3 py-2" href="#">
+          <img src="../img/LogoLeanSkill.jpeg" width="50" height="50" class="me-2" alt="Logo LeanSkill" />
+          Estudiante
+        </a>
+
+        <!-- Ítems de navegación -->
+        <ul class="navbar-nav flex-column px-3 flex-grow-1">
+          <li class="nav-item">
+            <a class="nav-link" href="../InicioStudent.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="PerfilStudent.html">Perfil</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="cursosDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Cursos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="cursosDropdown">
+              <li>
+                <a class="dropdown-item" href="CursoIngles.html">Inglés</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="CursoEspanol.html">Español</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="Notas.html">Notas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Profesores.html">Profesores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Docs.html">Entregas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="Ayuda.html">Ayuda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Configuraciones.html">Configuraciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../../InicioSesion/Login.html">Cerrar sesión</a>
+          </li>
+        </ul>
+
+        <!-- Footer del sidebar (pegado al fondo) -->
+        <div class="navbar-footer text-center text-white">
+          <small>© 2023 LeanSkill. Todos los derechos reservados.</small>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==========================
+         Contenido principal
+         ========================== -->
+    <main class="flex-fill">
+      <!-- Barra secundaria de Ayuda -->
+      <nav id="navbarSecundario" class="navbar d-flex align-items-center px-3">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="../img/LogoHelp.png" width="40" height="40" class="me-2" alt="Logo Ayuda" />
+          Ayuda
+        </a>
+
+        <!-- Botón “Atrás” -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../InicioStudent.html">Atrás</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- ==========================
+           Sección principal “Ayuda”
+           ========================== -->
+      <section class="mt-4">
+        <h2 class="seccion-title">Centro de Ayuda</h2>
+
+        <!-- 1. Acordeón de Preguntas Frecuentes -->
+        <div class="accordion mb-5" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingOne">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseOne"
+                aria-expanded="false"
+                aria-controls="faqCollapseOne"
+              >
+                ¿Cómo restablecer mi contraseña?
+              </button>
+            </h2>
+            <div
+              id="faqCollapseOne"
+              class="accordion-collapse collapse"
+              aria-labelledby="faqHeadingOne"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                Para restablecer su contraseña, vaya a la página de inicio de sesión
+                y haga clic en “Olvidé mi contraseña”. Luego siga las instrucciones que
+                recibirá por correo electrónico para crear una nueva.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseTwo"
+                aria-expanded="false"
+                aria-controls="faqCollapseTwo"
+              >
+                ¿Dónde puedo ver mis calificaciones?
+              </button>
+            </h2>
+            <div
+              id="faqCollapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="faqHeadingTwo"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                Las calificaciones se encuentran en el menú “Notas”. Allí verá
+                listados sus cursos con los porcentajes de talleres (40 %) y
+                exámenes (60 %), así como la nota final calculada.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingThree">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseThree"
+                aria-expanded="false"
+                aria-controls="faqCollapseThree"
+              >
+                ¿Cómo contacto a mi profesor?
+              </button>
+            </h2>
+            <div
+              id="faqCollapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="faqHeadingThree"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="accordion-body">
+                En la sección “Profesores” encontrará el listado de docentes de cada
+                curso. Haga clic en el botón “Matricular” para asignarse a uno; luego
+                podrá ver su correo y demás datos de contacto.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Enlaces a Tutoriales y Guías Rápidas -->
+        <div class="mb-5">
+          <h4 class="text-white mb-3">Tutoriales y Guías Rápidas</h4>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <a href="../docs/GuiaInicio.pdf" class="tutorial-link" target="_blank">
+                Guía de inicio: Cómo navegar en LeanSkill
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="../docs/VideoSubirTarea.mp4" class="tutorial-link" target="_blank">
+                Video: Cómo subir una tarea paso a paso
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="../docs/ManualCalificaciones.pdf" class="tutorial-link" target="_blank">
+                Manual: Comprendiendo tus calificaciones
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 3. Formulario de Contacto -->
+        <div class="menu-ayuda formulario-respuesta mb-5">
+          <h4 class="text-white mb-3">Contáctanos</h4>
+          <form id="contactoForm">
+            <div class="mb-3">
+              <label for="inputNombreContacto" class="form-label">Nombre completo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputNombreContacto"
+                name="nombre"
+                placeholder="Ingrese su nombre completo"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="inputEmailContacto" class="form-label">Correo electrónico</label>
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmailContacto"
+                name="email"
+                placeholder="su@correo.com"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="textareaMensaje" class="form-label">Mensaje</label>
+              <textarea
+                class="form-control"
+                id="textareaMensaje"
+                name="mensaje"
+                rows="4"
+                placeholder="¿En qué podemos ayudarte?"
+                required
+              ></textarea>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button type="reset" class="btn btn-secondary me-2">Limpiar</button>
+              <button type="submit" class="btn btn-enviar">Enviar mensaje</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ==========================
+       JavaScript: Bootstrap + Script propio
+       ========================== -->
+  <!-- 1) Bootstrap Bundle JS (Popper incluido) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- 2) Script para togglear “active” en el sidebar -->
+  <script>
+    document.querySelectorAll('#navbarLateral .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('#navbarLateral .nav-link.active')
+          .forEach(el => el.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- 3) Manejo simple del formulario de contacto (alert) -->
+  <script>
+    document.getElementById('contactoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Validación sencilla
+      const nombre = document.getElementById('inputNombreContacto').value.trim();
+      const email = document.getElementById('inputEmailContacto').value.trim();
+      const mensaje = document.getElementById('textareaMensaje').value.trim();
+      if (!nombre || !email || !mensaje) {
+        alert('Por favor complete todos los campos antes de enviar.');
+        return;
+      }
+      // Simular envío
+      alert('Su mensaje ha sido enviado. Nos pondremos en contacto pronto.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

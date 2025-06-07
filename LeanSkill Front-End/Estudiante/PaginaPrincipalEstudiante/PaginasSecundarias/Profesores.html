@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>LeanSkill – Profesores</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      :root {
+        --Verde-claro: #03624c;
+        --Verde-oscuro: #032221;
+        --anti-flash-white: #fff6d6;
+        --shadow-color: rgba(0, 0, 0, 0.25);
+        --Verde-azulado: #062e2d;
+      }
+
+      body {
+        background: linear-gradient(
+          135deg,
+          var(--Verde-oscuro),
+          var(--Verde-claro)
+        );
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ==========================
+         Sidebar (Menú lateral principal)
+         ========================== */
+      #navbarLateral {
+        background-color: var(--Verde-azulado) !important;
+        width: 198px;
+      }
+
+      #navbarLateral .navbar-brand {
+        color: white;
+        font-weight: 500;
+      }
+
+      #navbarLateral .nav-link {
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.75rem;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      #navbarLateral .nav-link:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      #navbarLateral .nav-link.active {
+        background-color: var(--Verde-oscuro);
+        color: white;
+      }
+
+      #navbarLateral .dropdown-menu {
+        background-color: var(--Verde-azulado);
+      }
+
+      #navbarLateral .dropdown-item {
+        color: white;
+      }
+
+      #navbarLateral .dropdown-item:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      /* Footer dentro del sidebar, pegado al fondo */
+      #navbarLateral .navbar-footer {
+        margin-top: auto;
+        padding: 1rem 0;
+      }
+
+      /* ==========================
+         Navbar secundaria (“Profesores”)
+         ========================== */
+      #navbarSecundario {
+        background-color: var(--Verde-azulado);
+        height: 70px;
+      }
+
+      #navbarSecundario .navbar-brand {
+        color: white;
+        font-weight: 500;
+      }
+
+      #navbarSecundario .nav-link {
+        color: white;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      #navbarSecundario .nav-link:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      #navbarSecundario .nav-link.active {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      /* ==========================
+         Estilos adicionales para el main
+         ========================== */
+      main {
+        padding: 1rem 2rem;
+      }
+
+      /* Aseguramos que el contenido principal use todo el espacio restante */
+      .d-flex > main {
+        flex-grow: 1;
+      }
+
+      /* Encabezados */
+      .seccion-title {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      /* Tablas */
+      .tabla-profesores th,
+      .tabla-profesores td {
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .btn-matricular,
+      .btn-cancelar {
+        background-color: #004d40;
+        color: white;
+        border: none;
+      }
+
+      .btn-matricular:hover,
+      .btn-cancelar:hover {
+        background-color: var(--Verde-claro);
+      }
+
+      /* Contenedor con borde para cada curso */
+      .curso-profesores-card {
+        border: 2px solid var(--anti-flash-white);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        background-color: var(--Verde-azulado);
+        box-shadow: 0 4px 12px var(--shadow-color);
+      }
+
+      .curso-profesores-card h5 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      /* Separación ligera entre tablas dentro del mismo contenedor */
+      .tabla-profesores + .tabla-profesores {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="d-flex">
+      <!-- ==========================
+         Menú lateral principal (Sidebar)
+         ========================== -->
+      <nav id="navbarLateral" class="navbar d-flex flex-column min-vh-100">
+        <div class="container-fluid d-flex flex-column h-100 p-0">
+          <!-- Logo y título del sidebar -->
+          <a class="navbar-brand d-flex align-items-center px-3 py-2" href="#">
+            <img
+              src="../img/LogoLeanSkill.jpeg"
+              width="50"
+              height="50"
+              class="me-2"
+              alt="Logo LeanSkill"
+            />
+            Estudiante
+          </a>
+
+          <!-- Ítems de navegación -->
+          <ul class="navbar-nav flex-column px-3 flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link" href="../InicioStudent.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="PerfilStudent.html">Perfil</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="cursosDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Cursos
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="cursosDropdown">
+                <li>
+                  <a class="dropdown-item" href="CursoIngles.html">Inglés</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="CursoEspanol.html">Español</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="Notas.html">Notas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Profesores.html">Profesores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Docs.html">Entregas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Ayuda.html">Ayuda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Configuraciones.html"
+                >Configuraciones</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../../InicioSesion/Login.html"
+                >Cerrar sesión</a
+              >
+            </li>
+          </ul>
+
+          <!-- Footer del sidebar (pegado al fondo) -->
+          <div class="navbar-footer text-center text-white">
+            <small>© 2023 LeanSkill. Todos los derechos reservados.</small>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ==========================
+         Contenido principal
+         ========================== -->
+      <main class="flex-fill">
+        <!-- Barra secundaria de “Profesores” -->
+        <nav
+          id="navbarSecundario"
+          class="navbar d-flex align-items-center px-3"
+        >
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="../img/LogoTeacher.png"
+              width="40"
+              height="40"
+              class="me-2"
+              alt="Logo Profesores"
+            />
+            Profesores
+          </a>
+
+          <!-- Botón “Atrás” -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../InicioStudent.html">Atrás</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Aquí va el contenido específico de la sección “Profesores” -->
+        <section class="mt-4">
+          <h2 class="seccion-title">Listado de Profesores</h2>
+
+          <!-- ==========================
+               Contenedor con borde para Profesores de Inglés
+               ========================== -->
+          <div class="curso-profesores-card">
+            <h5>Profesores de Inglés</h5>
+            <div class="table-responsive">
+              <table
+                class="table table-striped table-dark tabla-profesores"
+                id="tablaProfesoresIngles"
+              >
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>Correo</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Ejemplos de filas; reemplazar con datos reales -->
+                  <tr>
+                    <td>1</td>
+                    <td>María Pérez</td>
+                    <td>maria.perez@leanskill.com</td>
+                    <td>
+                      <button class="btn btn-matricular btn-sm">
+                        Matricular
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Carlos López</td>
+                    <td>carlos.lopez@leanskill.com</td>
+                    <td>
+                      <button class="btn btn-matricular btn-sm">
+                        Matricular
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- Fin ejemplos -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ==========================
+               Contenedor con borde para Profesores de Español
+               ========================== -->
+          <div class="curso-profesores-card">
+            <h5>Profesores de Español</h5>
+            <div class="table-responsive">
+              <table
+                class="table table-striped table-dark tabla-profesores"
+                id="tablaProfesoresEspanol"
+              >
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>Correo</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Ejemplos de filas; reemplazar con datos reales -->
+                  <tr>
+                    <td>1</td>
+                    <td>Laura Ramírez</td>
+                    <td>laura.ramirez@leanskill.com</td>
+                    <td>
+                      <button class="btn btn-matricular btn-sm">
+                        Matricular
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Juan Gómez</td>
+                    <td>juan.gomez@leanskill.com</td>
+                    <td>
+                      <button class="btn btn-matricular btn-sm">
+                        Matricular
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- Fin ejemplos -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ==========================
+       JavaScript: Bootstrap + Script propio
+       ========================== -->
+    <!-- 1) Bootstrap Bundle JS (Popper incluido) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 2) Script para togglear “active” en el sidebar -->
+    <script>
+      document.querySelectorAll("#navbarLateral .nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          // Remueve la clase .active de todos los enlaces
+          document
+            .querySelectorAll("#navbarLateral .nav-link.active")
+            .forEach((el) => {
+              el.classList.remove("active");
+            });
+          // Agrega .active al enlace clicado
+          link.classList.add("active");
+        });
+      });
+    </script>
+
+    <!-- 3) Script para manejar matriculación de un solo profesor por curso con confirmaciones -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Función genérica para asignar comportamiento a cada tabla
+        function configurarMatriculacion(tablaId) {
+          const tabla = document.getElementById(tablaId);
+          const botones = tabla.querySelectorAll("button");
+
+          botones.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const esMatricular = btn.textContent.trim() === "Matricular";
+
+              if (esMatricular) {
+                // Confirmación para matricular
+                const confirmar = confirm(
+                  "¿Estás seguro que quieres matricular con este profesor?"
+                );
+                if (!confirmar) return;
+
+                // Cambiar texto y estilo del botón clicado
+                btn.textContent = "Cancelar Clase";
+                btn.classList.remove("btn-matricular");
+                btn.classList.add("btn-cancelar");
+
+                // Deshabilitar todos los demás botones "Matricular" en esta tabla
+                botones.forEach((otro) => {
+                  if (otro !== btn && otro.textContent.trim() === "Matricular") {
+                    otro.disabled = true;
+                  }
+                });
+              } else {
+                // Confirmación para cancelar
+                const confirmar = confirm(
+                  "¿Estás seguro que quieres cancelar esta clase?"
+                );
+                if (!confirmar) return;
+
+                // Revertir texto y estilo
+                btn.textContent = "Matricular";
+                btn.classList.remove("btn-cancelar");
+                btn.classList.add("btn-matricular");
+
+                // Habilitar todos los botones "Matricular" en esta tabla
+                botones.forEach((otro) => {
+                  if (otro.textContent.trim() === "Matricular") {
+                    otro.disabled = false;
+                  }
+                });
+              }
+            });
+          });
+        }
+
+        // Configurar para ambas tablas
+        configurarMatriculacion("tablaProfesoresIngles");
+        configurarMatriculacion("tablaProfesoresEspanol");
+      });
+    </script>
+
+    <!-- 4) Tu otro archivo JS si fuese necesario -->
+    <script src="../scripts/CargarProfesores.js" defer></script>
+  </body>
+</html>

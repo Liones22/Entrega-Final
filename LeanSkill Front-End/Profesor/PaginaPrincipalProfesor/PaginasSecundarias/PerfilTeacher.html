@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>LeanSkill – Perfil</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      :root {
+        --Verde-claro: #03624c;
+        --Verde-oscuro: #032221;
+        --anti-flash-white: #fff6d6;
+        --shadow-color: rgba(0, 0, 0, 0.25);
+        --Verde-azulado: #062e2d;
+      }
+
+      body {
+        background: linear-gradient(
+          135deg,
+          var(--Verde-oscuro),
+          var(--Verde-claro)
+        );
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ==========================
+         Sidebar (Menú lateral principal)
+         ========================== */
+      #navbarLateral {
+        background-color: var(--Verde-azulado) !important;
+        width: 198px;
+      }
+
+      #navbarLateral .navbar-brand {
+        color: white;
+        font-weight: 500;
+      }
+
+      #navbarLateral .nav-link {
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.75rem;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      #navbarLateral .nav-link:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      #navbarLateral .nav-link.active {
+        background-color: var(--Verde-oscuro);
+        color: white;
+      }
+
+      #navbarLateral .dropdown-menu {
+        background-color: var(--Verde-azulado);
+      }
+
+      #navbarLateral .dropdown-item {
+        color: white;
+      }
+
+      #navbarLateral .dropdown-item:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      /* Footer dentro del sidebar, pegado al fondo */
+      #navbarLateral .navbar-footer {
+        margin-top: auto;
+        padding: 1rem 0;
+      }
+
+      /* ==========================
+         Navbar secundaria (Perfil)
+         ========================== */
+      #navbarSecundario {
+        background-color: var(--Verde-azulado);
+        height: 70px;
+      }
+
+      #navbarSecundario .navbar-brand {
+        color: white;
+        font-weight: 500;
+      }
+
+      #navbarSecundario .nav-link {
+        color: white;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      #navbarSecundario .nav-link:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      #navbarSecundario .nav-link.active {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      /* ==========================
+         Estilos adicionales para el main
+         ========================== */
+      main {
+        padding: 1rem 2rem;
+      }
+
+      /* Aseguramos que el contenido principal use todo el espacio restante */
+      .d-flex > main {
+        flex-grow: 1;
+      }
+
+      /* Etiquetas (labels) en negro */
+      .form-label {
+        color: black !important;
+      }
+
+      /* Tarjeta con bordes redondeados y sombra */
+      .config-card {
+        background-color: var(--anti-flash-white);
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        padding: 1.5rem;
+      }
+
+      /* Centrar contenido */
+      .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+      }
+
+      /* Ajustar ancho máximo para tarjetas */
+      .card-wrapper {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      /* Botones */
+      .btn-guardar {
+        background-color: #004d40;
+        color: white;
+        border: none;
+      }
+
+      .btn-guardar:hover {
+        background-color: var(--Verde-claro);
+        color: white;
+      }
+
+      .btn-actualizar {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+      }
+
+      .btn-actualizar:hover {
+        background-color: #5a6268;
+        color: white;
+      }
+
+      /* ==========================
+         Listados de estudiantes
+         ========================== */
+      .lista-curso {
+        background-color: var(--anti-flash-white);
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        padding: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .lista-curso h4 {
+        color: #032221;
+        margin-bottom: 0.75rem;
+      }
+
+      .lista-curso ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .lista-curso ul li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .lista-curso ul li:last-child {
+        border-bottom: none;
+      }
+
+      .lista-curso ul li span {
+        font-weight: 500;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="d-flex">
+      <!-- ==========================
+         Menú lateral principal (Sidebar)
+         ========================== -->
+      <nav id="navbarLateral" class="navbar d-flex flex-column min-vh-100">
+        <div class="container-fluid d-flex flex-column h-100 p-0">
+          <!-- Logo y título del sidebar -->
+          <a class="navbar-brand d-flex align-items-center px-3 py-2" href="#">
+            <img
+              src="../img/LogoLeanSkill.jpeg"
+              width="50"
+              height="50"
+              class="me-2"
+              alt="Logo LeanSkill"
+            />
+            Profesor
+          </a>
+
+          <!-- Ítems de navegación -->
+          <ul class="navbar-nav flex-column px-3 flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link" href="../InicioTeacher.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="PerfilTeacher.html"
+                >Perfil</a
+              >
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="cursosDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Cursos
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="cursosDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="CursoInglesTeacher.html"
+                    >Inglés</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="CursoEspanolTeacher.html"
+                    >Español</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="NotasTeacher.html">Notas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Estudiantes.html"
+                >Estudiantes</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AyudaTeacher.html">Ayuda</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="ConfiguracionesTeacher.html"
+                >Configuraciones</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="../../../InicioSesion/Login.html"
+                >Cerrar sesión</a
+              >
+            </li>
+          </ul>
+
+          <!-- Footer del sidebar (pegado al fondo) -->
+          <div class="navbar-footer text-center text-white">
+            <small>© 2023 LeanSkill. Todos los derechos reservados.</small>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ==========================
+         Contenido principal
+         ========================== -->
+      <main class="flex-fill">
+        <!-- Barra secundaria de Perfil -->
+        <nav
+          id="navbarSecundario"
+          class="navbar d-flex align-items-center px-3"
+        >
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="../img/LogoTeacher.png"
+              width="40"
+              height="40"
+              class="me-2"
+              alt="Logo Perfil"
+            />
+            Perfil
+          </a>
+
+          <!-- Botón “Atrás” -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../InicioTeacher.html">Atrás</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- ==========================
+           Contenido de la sección Perfil
+           ========================== -->
+        <section class="mt-4">
+          <div class="center-container">
+            <div class="card-wrapper config-card">
+              <h2 class="mb-3">Información del Profesor</h2>
+              <form id="formPerfilTeacher">
+                <!-- Nombre -->
+                <div class="mb-3">
+                  <label for="inputNombre" class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputNombre"
+                    value="Alejandro"
+                    disabled
+                    required
+                  />
+                </div>
+
+                <!-- Apellidos -->
+                <div class="mb-3">
+                  <label for="inputApellidos" class="form-label"
+                    >Apellidos</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputApellidos"
+                    value="Ramírez Gómez"
+                    disabled
+                    required
+                  />
+                </div>
+
+                <!-- Correo Electrónico -->
+                <div class="mb-3">
+                  <label for="inputEmail" class="form-label"
+                    >Correo electrónico</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail"
+                    value="alejandro.ramirez@leanskill.com"
+                    disabled
+                    required
+                  />
+                </div>
+
+                <!-- Botones -->
+                <div class="d-flex justify-content-end">
+                  <button
+                    type="button"
+                    class="btn btn-actualizar me-2"
+                    id="btnActualizar"
+                  >
+                    Actualizar Datos
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-guardar"
+                    id="btnGuardar"
+                    disabled
+                  >
+                    Guardar Cambios
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- ==========================
+               Listados de Estudiantes por Curso
+               ========================== -->
+          <div class="mt-5">
+            <!-- Lista para estudiantes de Inglés -->
+            <div class="lista-curso">
+              <h4>Estudiantes matriculados – Inglés</h4>
+              <ul>
+                <li><span>0015</span> – Camila Torres</li>
+                <li><span>0023</span> – Sebastián Muñoz</li>
+                <li><span>0041</span> – Valeria Sánchez</li>
+                <li><span>0056</span> – Andrés Ramírez</li>
+                <!-- Agrega más filas según datos reales -->
+              </ul>
+            </div>
+
+            <!-- Lista para estudiantes de Español -->
+            <div class="lista-curso">
+              <h4>Estudiantes matriculados – Español</h4>
+              <ul>
+                <li><span>0032</span> – Laura Fernández</li>
+                <li><span>0045</span> – Juan Pablo Ríos</li>
+                <li><span>0060</span> – Daniela Ibáñez</li>
+                <li><span>0078</span> – Francisco López</li>
+                <!-- Agrega más filas según datos reales -->
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ==========================
+       JavaScript: Bootstrap + Script propio
+       ========================== -->
+    <!-- 1) Bootstrap Bundle JS (Popper incluido) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 2) Script para togglear “active” en el sidebar -->
+    <script>
+      document.querySelectorAll("#navbarLateral .nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          // Remueve la clase .active de todos los enlaces
+          document
+            .querySelectorAll("#navbarLateral .nav-link.active")
+            .forEach((el) => {
+              el.classList.remove("active");
+            });
+          // Agrega .active al enlace clicado
+          link.classList.add("active");
+        });
+      });
+    </script>
+
+    <!-- 3) Script para habilitar edición, validación y confirmaciones -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const btnActualizar = document.getElementById("btnActualizar");
+        const btnGuardar = document.getElementById("btnGuardar");
+
+        // Inputs del formulario (nombre, apellidos, correo)
+        const inputs = [
+          document.getElementById("inputNombre"),
+          document.getElementById("inputApellidos"),
+          document.getElementById("inputEmail"),
+        ];
+
+        btnActualizar.addEventListener("click", () => {
+          const confirmar = confirm(
+            "¿Estás seguro que quieres actualizar tus datos?"
+          );
+          if (!confirmar) return;
+
+          // Habilitar campos
+          inputs.forEach((el) => {
+            el.disabled = false;
+          });
+
+          // Habilitar botón Guardar y deshabilitar Actualizar
+          btnGuardar.disabled = false;
+          btnActualizar.disabled = true;
+        });
+
+        btnGuardar.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          // Validación: ningún campo puede quedar vacío
+          const hayVacio = inputs.some((el) => el.value.trim() === "");
+          if (hayVacio) {
+            alert("Por favor completa todos los campos antes de guardar.");
+            return;
+          }
+
+          const confirmar = confirm(
+            "¿Estás seguro que quieres guardar los cambios?"
+          );
+          if (!confirmar) return;
+
+          // Deshabilitar campos nuevamente
+          inputs.forEach((el) => {
+            el.disabled = true;
+          });
+
+          // Volver a habilitar Actualizar y deshabilitar Guardar
+          btnActualizar.disabled = false;
+          btnGuardar.disabled = true;
+
+          alert("Cambios guardados correctamente.");
+        });
+      });
+    </script>
+  </body>
+</html>
