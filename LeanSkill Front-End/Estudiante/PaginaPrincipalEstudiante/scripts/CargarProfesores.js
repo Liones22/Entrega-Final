@@ -1,13 +1,19 @@
 async function loadInstructors(){
-    const token = localStorage.getItem("token");
-    const data = await fetch("http://localhost:9090/api/v1/users", {
-        headers: {
-            Authorization: token
-        }
-    }).then(r => r.json());
-    
-    const instructors = Object.values(data.users).filter(t => t.account.role === "INSTRUCTOR");
-    console.log(instructors)
+    const data = await apiFetch('/users');
+    if(!data || !data.users) return;
+    const instructors = Object.values(data.users).filter(u => u.account.role === 'INSTRUCTOR');
+    ["tablaProfesoresIngles","tablaProfesoresEspanol"].forEach(id => {
+        const table = document.getElementById(id);
+        if(!table) return;
+        const tbody = table.querySelector('tbody');
+        tbody.innerHTML = '';
+        instructors.forEach(inst => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${inst.id}</td><td>${inst.first_name} ${inst.last_name}</td>`+
+                `<td>${inst.credentials.email}</td><td><button class="btn btn-matricular btn-sm">Matricular</button></td>`;
+            tbody.appendChild(tr);
+        });
+    });
 }
 
-window.addEventListener("load", loadInstructors);
+window.addEventListener('DOMContentLoaded', loadInstructors);
