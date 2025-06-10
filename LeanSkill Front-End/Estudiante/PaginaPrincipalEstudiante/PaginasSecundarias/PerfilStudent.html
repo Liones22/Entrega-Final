@@ -452,25 +452,14 @@
           alert("Cambios guardados correctamente.");
         });
 
-        // Poblar la tabla de cursos
-        const cursos = [
-          { id: 1, nombre: "Inglés", profesor: "María Pérez" },
-          { id: 2, nombre: "Español", profesor: "Juan Gómez" },
-        ];
-        const tbody = document.getElementById("tablaCursos");
-        cursos.forEach((curso) => {
-          const fila = document.createElement("tr");
-          fila.innerHTML = `
-            <td>${curso.id}</td>
-            <td>${curso.nombre}</td>
-            <td>${curso.profesor}</td>
-          `;
-          tbody.appendChild(fila);
-        });
+        // Los datos del estudiante y sus cursos se cargarán mediante
+        // "CargarPerfil.js" utilizando la API del backend.
       });
     </script>
 
-    <!-- 4) Tu otro archivo JS si lo necesitas (por ejemplo, cargar profesores) -->
+    <!-- Scripts para obtener datos desde el backend -->
+    <script src="../../api.js" defer></script>
+    <script src="../scripts/CargarPerfil.js" defer></script>
     <script src="../scripts/CargarProfesores.js" defer></script>
   </body>
 </html>
